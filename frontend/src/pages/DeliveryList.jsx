@@ -31,7 +31,7 @@ function DeliveryList() {
     setDeliveredToday(todayDelivered);
 
     axios
-      .get(`http://localhost:8080/${areaName}/customers`)
+      .get(`${BASE_URL}/${areaName}/customers`)
       .then((res) => setCustomers(res.data))
       .catch(console.error);
   }, [areaName, todayString]);
