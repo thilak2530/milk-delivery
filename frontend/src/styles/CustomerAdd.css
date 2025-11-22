@@ -1,0 +1,86 @@
+/* Container */
+.add-customer-container {
+  min-height: 100vh;
+  background-color: var(--background);
+  padding: 1rem;
+}
+
+.add-customer-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Header */
+.add-customer-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-customer-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.add-customer-subtitle {
+  color: var(--muted-foreground);
+}
+
+/* Card */
+.add-customer-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Form Layout */
+.add-customer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Buttons */
+.save-button {
+  width: 100%;
+  height: 3.5rem;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #1e7e34;
+}
+
+/* Touch Button for Back Icon */
+.touch-button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e2e2;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.touch-button:hover {
+  background-color: #f0f0f0;
+}

@@ -1,0 +1,127 @@
+/* Main layout */
+.areas-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 20px;
+}
+
+.areas-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.areas-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.areas-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.areas-header p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Back button */
+.touch-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.touch-button:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+/* Grid layout */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Area card */
+.customer-card {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.customer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+/* Card content */
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+/* Icon box */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: 12px;
+  width: 50px;
+  height: 50px;
+}
+
+.map-icon {
+  color: #2563eb;
+  width: 24px;
+  height: 24px;
+}
+
+/* Text */
+.customer-card h3 {
+  font-size: 1.1rem;
+  color: #111827;
+  margin: 0;
+}
+
+.customer-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 2px 0 0;
+}
+
+/* Button */
+.start-button {
+  width: 100%;
+  height: 45px;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #22c55e;
+  color: white;
+}

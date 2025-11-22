@@ -1,0 +1,175 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+.customer-page {
+  min-height: 100vh;
+  background-color: var(--background);
+  padding: 1rem;
+}
+
+.customer-container {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+} 
+.header  p{
+  display: flex;
+} 
+
+.customer-house{
+  color: white;
+}
+
+
+
+.stat-card {
+  display: flex;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.customer-stat-card{
+  display: block;
+}
+
+.warning-card {
+  background-color: #fff7e6;
+  border: 1px solid #ffd580;
+}
+
+.info-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; 
+  margin-bottom: 0.5rem;
+}
+
+.icon {
+  color: rgb(25, 127, 199);
+}
+
+.info-text {
+  color: var(--foreground);
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.balance-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.balance-icon {
+  padding: 0.75rem;
+  background-color: #fff3cd;
+  border-radius: 0.75rem;
+}
+
+.balance-label {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+.balance-amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.plan-details {
+  color: var(--muted-foreground);
+}
+
+.plan-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.4rem 0;
+}
+
+.mark-paid-button{
+  height: 50px;
+  background-color: #22c55e; 
+
+}
+
+.mark-paid-button:hover{
+  background-color: #5ec182; 
+}
+
+.text-warning{
+  color: #d5ac5a;
+}
+.value {
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.notes-text {
+  color: var(--muted-foreground);
+}
+
+.delivery-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.delivery-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+
+.delivery-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.delivery-date {
+  font-weight: 500;
+}
+
+.delivery-qty {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.delivery-amount {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.edit-customer-button{
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  
+}
+.edit-customer-button:hover{
+    background-color: #22c55e; 
+}

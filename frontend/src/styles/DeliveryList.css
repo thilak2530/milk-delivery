@@ -1,0 +1,221 @@
+.delivery-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 20px;
+}
+
+.delivery-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.delivery-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.delivery-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.delivery-header p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Back Button */
+.back-button {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.1);
+}
+
+/* Customer Cards */
+.customers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customer-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.customer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Info layout */
+.customer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.customer-info h3 {
+  font-size: 1.1rem;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.customer-info p {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Balance */
+.balance-label {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.balance-value {
+  color: #111827;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+/* Delivered Tag */
+.delivered-tag {
+  background-color: #dcfce7;
+  color: #16a34a;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.delivered-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Milk Info */
+.milk-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+.milk-icon {
+  width: 20px;
+  height: 20px;
+  color: #3b82f6;
+}
+
+/* Deliver Button */
+.deliver-button {
+  width: 100%;
+  margin-top: 12px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deliver-button:hover {
+  background-color: #2563eb;
+}
+
+.deliver-button.disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Dialog */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-box {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.dialog-box h2 {
+  font-size: 1.5rem;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+/* Quantity grid */
+.quantity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.quantity-button {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quantity-button:hover {
+  background-color: #22c55e;
+  color: white;
+  border-color: #22c55e;
+}
+
+.milk-icon-large {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 4px;
+}
+
+/* Close button */
+.close-dialog {
+  margin-top: 16px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.close-dialog:hover {
+  background-color: #e5e7eb;
+}
