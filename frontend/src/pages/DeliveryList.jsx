@@ -29,7 +29,7 @@ function DeliveryList() {
     }
 
     setDeliveredToday(todayDelivered);
-
+    const BASE_URL = process.env.REACT_APP_BACKEND_URL;
     axios
       .get(`${BASE_URL}/${areaName}/customers`)
       .then((res) => setCustomers(res.data))
