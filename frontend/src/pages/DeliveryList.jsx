@@ -16,25 +16,33 @@ function DeliveryList() {
   // Get today's date string
   const todayString = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-  // Load delivered info from localStorage
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("deliveredToday")) || {};
-    const todayDelivered = new Set();
+ useEffect(() => {
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
-    // Only keep customers delivered today
-    for (let id in stored) {
-      if (stored[id] === todayString) {
-        todayDelivered.add(parseInt(id));
-      }
-    }
+  // Load customers
+  axios
+    .get(`${BASE_URL}/${areaName}/customers`)
+    .then((res) => setCustomers(res.data))
+    .catch(console.error);
 
-    setDeliveredToday(todayDelivered);
-    const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  // Initial fetch of today's deliveries
+  const fetchDelivered = () => {
     axios
-      .get(`${BASE_URL}/${areaName}/customers`)
-      .then((res) => setCustomers(res.data))
+      .get(`${BASE_URL}/daily-delivery/today`)
+      .then((res) => {
+        const deliveredIds = res.data.map(d => d.customerId);
+        setDeliveredToday(new Set(deliveredIds));
+      })
       .catch(console.error);
-  }, [areaName, todayString]);
+  };
+
+  fetchDelivered(); // initial call
+
+  // Poll every 10 seconds to sync across devices
+  const interval = setInterval(fetchDelivered, 10000);
+
+  return () => clearInterval(interval); // cleanup
+}, [areaName]);
 
   const getPrice = (quantity) => {
     switch (quantity) {
@@ -65,12 +73,19 @@ function DeliveryList() {
       .catch(console.error);
 
     // Update deliveredToday state
-    setDeliveredToday((prev) => new Set(prev).add(customerId));
+    
 
-    // Save to localStorage with today's date
-    const stored = JSON.parse(localStorage.getItem("deliveredToday")) || {};
-    stored[customerId] = todayString;
-    localStorage.setItem("deliveredToday", JSON.stringify(stored));
+    axios.post(`${BASE_URL}/daily-delivery/add`, {
+      customerId,
+      quantity,
+      deliveryDate: todayString
+    })
+    .then((res) => {
+    // backend saved, now update local state
+    setDeliveredToday((prev) => new Set(prev).add(customerId));
+    alert(`✅ Delivered ${quantity} to customer.`);
+    })
+    .catch(console.error);
 
     setSelectedCustomer(null);
     alert(`✅ Delivered ${quantity} to customer.`);
@@ -88,7 +103,6 @@ function DeliveryList() {
         );
       })
       .catch(console.error);
-
      
   };
 
