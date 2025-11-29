@@ -86,8 +86,11 @@ function DeliveryList() {
     // backend saved, now update local state
     setDeliveredToday((prev) => new Set(prev).add(customerId));
     alert(`✅ Delivered ${quantity} to customer.`);
-      const message = encodeURIComponent(`${quantity} Milk delivered ✓ `);
-      window.open(`https://wa.me/${phonenumber}?text=${message}`, "_blank");
+
+      const cleanNumber = phonenumber.replace(/[^0-9]/g, '');
+      const message = encodeURIComponent(`${quantity} Milk delivered ✓`);
+      window.open(`https://wa.me/${cleanNumber}?text=${message}`, "_blank");
+     
     })
     .catch(console.error);
 
