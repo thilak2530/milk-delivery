@@ -54,6 +54,16 @@ function DeliveryList() {
   const handleDelivery = (customerId, quantity) => {
     const price = getPrice(quantity);
 
+    const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+     axios
+      .patch(`${BASE_URL}/updateDelivery/${customerId}`, {delivery:true })
+      .then((res) => {
+        console.log("succes");
+        console.log(customerId);
+        
+      })
+      .catch(console.error);
+
     // Update deliveredToday state
     setDeliveredToday((prev) => new Set(prev).add(customerId));
 
@@ -66,7 +76,7 @@ function DeliveryList() {
     alert(`✅ Delivered ${quantity} to customer.`);
 
     // Update backend balance
-    const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+    
     axios
       .patch(`${BASE_URL}/${customerId}/add-balance`, { amount: price })
       .then((res) => {
@@ -79,13 +89,7 @@ function DeliveryList() {
       })
       .catch(console.error);
 
-      axios
-      .patch(`${BASE_URL}/updateDelivery/${customerId}`, {delivery:true })
-      .then((res) => {
-        console.log("succes");
-        
-      })
-      .catch(console.error);
+     
   };
 
   return (

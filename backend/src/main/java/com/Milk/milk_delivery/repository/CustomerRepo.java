@@ -2,12 +2,15 @@ package com.Milk.milk_delivery.repository;
 
 import com.Milk.milk_delivery.dto.DeliveryDTO;
 import com.Milk.milk_delivery.model.Customers;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Map;
+
 
 public interface CustomerRepo extends JpaRepository<Customers, Long> {
 
@@ -22,4 +25,9 @@ public interface CustomerRepo extends JpaRepository<Customers, Long> {
 
     @Query("SELECT new com.Milk.milk_delivery.dto.DeliveryDTO(c.name, c.deliveredNot) FROM Customers c")
     List<DeliveryDTO> findAllDeliveries();
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE Customers c SET c.deliveredNot = false")
+    void resetDeliveryStatus();
 }
