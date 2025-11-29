@@ -10,6 +10,7 @@ function DeliveryList() {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [deliveredToday, setDeliveredToday] = useState(new Set());
   const [customers, setCustomers] = useState([]);
+  
 
   const quantities = ["250 ml", "500 ml", "750 ml", "1 L"];
 
@@ -59,7 +60,7 @@ function DeliveryList() {
     }
   };
 
-  const handleDelivery = (customerId, quantity) => {
+  const handleDelivery = (customerId, quantity,phonenumber) => {
     const price = getPrice(quantity);
 
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -67,6 +68,7 @@ function DeliveryList() {
       .patch(`${BASE_URL}/updateDelivery/${customerId}`, {delivery:true })
       .then((res) => {
         console.log("succes");
+        console.log(phonenumber);
         console.log(customerId);
         
       })
@@ -84,11 +86,13 @@ function DeliveryList() {
     // backend saved, now update local state
     setDeliveredToday((prev) => new Set(prev).add(customerId));
     alert(`✅ Delivered ${quantity} to customer.`);
+      const message = encodeURIComponent(`${quantity} Milk delivered ✓ `);
+      window.open(`https://wa.me/${phonenumber}?text=${message}`, "_blank");
     })
     .catch(console.error);
 
     setSelectedCustomer(null);
-    alert(`✅ Delivered ${quantity} to customer.`);
+    
 
     // Update backend balance
     
@@ -152,8 +156,8 @@ function DeliveryList() {
                 }`}
                 disabled={deliveredToday.has(customer.id)}
                 onClick={() =>
-                  !deliveredToday.has(customer.id) &&
-                  setSelectedCustomer(customer.id)
+                  {if(!deliveredToday.has(customer.id)){
+                  setSelectedCustomer(customer.id)}}
                 }
               >
                 {deliveredToday.has(customer.id)
@@ -174,7 +178,7 @@ function DeliveryList() {
                   <button
                     key={idx}
                     className="quantity-button"
-                    onClick={() => handleDelivery(selectedCustomer, qty)}
+                    onClick={() => handleDelivery(selectedCustomer, qty,customers.find(c => c.id === selectedCustomer).phoneNumber)}
                   >
                     <Milk className="milk-icon-large" /> {qty}
                   </button>
