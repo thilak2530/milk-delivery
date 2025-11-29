@@ -73,10 +73,7 @@ public class CustomersController {
         return ResponseEntity.ok(saved);
     }
 
-    @GetMapping("/deliveryNot")
-    public List<DeliveryDTO> getAllDeliveries() {
-        return service.deliveredNot();
-    }
+
 
     @PatchMapping("/updateDelivery/{id}")
     public ResponseEntity<Customers> markDelivered(@PathVariable long id, @RequestBody Map<String, Boolean> payload) {

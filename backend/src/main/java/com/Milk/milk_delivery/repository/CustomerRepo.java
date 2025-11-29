@@ -26,8 +26,5 @@ public interface CustomerRepo extends JpaRepository<Customers, Long> {
     @Query("SELECT new com.Milk.milk_delivery.dto.DeliveryDTO(c.name, c.deliveredNot) FROM Customers c")
     List<DeliveryDTO> findAllDeliveries();
 
-    @Transactional
-    @Modifying
-    @Query("UPDATE Customers c SET c.deliveredNot = false")
-    void resetDeliveryStatus();
+
 }

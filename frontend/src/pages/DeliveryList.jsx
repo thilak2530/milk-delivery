@@ -64,15 +64,7 @@ function DeliveryList() {
     const price = getPrice(quantity);
 
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-     axios
-      .patch(`${BASE_URL}/updateDelivery/${customerId}`, {delivery:true })
-      .then((res) => {
-        console.log("succes");
-        console.log(phonenumber);
-        console.log(customerId);
-        
-      })
-      .catch(console.error);
+     
 
     // Update deliveredToday state
     
